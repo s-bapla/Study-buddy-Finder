@@ -10,6 +10,17 @@
   font-family: "Oswald", sans-serif; /* College-style font */
   color: rgb(0, 0, 0);
   text-align: center;
+  animation: fadeIn 2s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .content {
@@ -18,8 +29,8 @@
 
 .logo {
   display: block; /* Centers the image horizontally */
-  margin: 0 80px;
-  width: 200px; /* Adjusts the width of the logo */
+  margin: 0 60px;
+  width: 250px; /* Adjusts the width of the logo */
   height: auto; /* Maintains aspect ratio */
 }
 
