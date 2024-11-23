@@ -1,30 +1,31 @@
-from flask import Flask, jsonify, request
+from flask import Flask, request
+from flask_socketio import join_room, leave_room, send, SocketIO
+
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-import pymysql  # Import pymysql to replace MySQLdb
+from utils.db import get_db_connection_url
 
-# Install pymysql as MySQLdb
-pymysql.install_as_MySQLdb()
-
-# Initialize Flask app
+# Flask app setup
 app = Flask(__name__)
-
-# Enable CORS (Cross-Origin Resource Sharing) for frontend-backend communication
+app.config["SECRET_KEY"] = "sekret"
+app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 CORS(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
-# Configure SQLAlchemy for database connection
-# Use pymysql in the connection URI
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://username:password@localhost/studybuddy_db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-
-# Initialize the database
+# Configure SQLAlchemy
+app.config["SQLALCHEMY_DATABASE_URI"] = get_db_connection_url()
 db = SQLAlchemy(app)
 
-# Define a simple route for testing
-@app.route('/')
-def home():
-    return jsonify({'message': 'Hello, World!'})
 
-# Run the Flask app
-if __name__ == '__main__':
-    app.run(debug=True)
+class Users(db.Model):
+    __tablename__ = "Users"
+
+
+@app.before_first_request
+def initialize_database():
+    """Create tables if they don't exist."""
+    db.create_all()
+
+
+if __name__ == "__main__":
+    socketio.run(app, host="0.0.0.0", port=8080, debug=True, allow_unsafe_werkzeug=True)
