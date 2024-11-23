@@ -1,0 +1,74 @@
+/* General Layout */
+.landing-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8741c; /* Oregon State orange */
+  margin: 0;
+  padding: 0;
+  font-family: "Oswald", sans-serif; /* College-style font */
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+.content {
+  max-width: 600px;
+}
+
+.logo {
+  display: block; /* Centers the image horizontally */
+  margin: 0 80px;
+  width: 200px; /* Adjusts the width of the logo */
+  height: auto; /* Maintains aspect ratio */
+}
+
+/* Title Styling */
+.title {
+  font-size: 6rem;
+  margin-top: -20px;
+  margin-bottom: 10px;
+  letter-spacing: 7px;
+}
+
+/* Subtext Styling */
+.subtext {
+  font-size: 3rem;
+  margin-top: -20px;
+  margin-bottom: 40px;
+  font-family: "Roboto", sans-serif; /* Complimentary font for readability */
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* Button Styling */
+.btn {
+  padding: 15px 30px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000000;
+  background-color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+}
+
+.btn:hover {
+  background-color: #ff9a4c; /* Lighter orange for hover effect */
+  color: white;
+}
+
+.login {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+}
+
+.register {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+}
