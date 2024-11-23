@@ -1,9 +1,10 @@
 from flask import Flask, request
 from flask_socketio import join_room, leave_room, send, SocketIO
-
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
-from utils.db import get_db_connection_url
+import psycopg2
+
+import os
 
 # Flask app setup
 app = Flask(__name__)
@@ -13,19 +14,20 @@ CORS(app)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Configure SQLAlchemy
-app.config["SQLALCHEMY_DATABASE_URI"] = get_db_connection_url()
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:abc@localhost:5432/example'
+
 db = SQLAlchemy(app)
 
 
 class Users(db.Model):
-    __tablename__ = "Users"
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
 
 
-@app.before_first_request
-def initialize_database():
-    """Create tables if they don't exist."""
-    db.create_all()
 
 
 if __name__ == "__main__":
+    with app.app_context():
+        db.create_all()
     socketio.run(app, host="0.0.0.0", port=8080, debug=True, allow_unsafe_werkzeug=True)

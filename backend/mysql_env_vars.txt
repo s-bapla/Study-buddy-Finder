@@ -1,1 +1,0 @@
-fall-2024-hackathon:us-central1:hackathon-db
