@@ -6,6 +6,17 @@
   background-color: #f8741c;
   color: white;
   font-family: "Roboto", sans-serif;
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* Fade-in animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
 
 .form-container {

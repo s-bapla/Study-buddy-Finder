@@ -1,5 +1,5 @@
 import React from "react";
-import "../assets/css/landing.css"; // Include CSS for LandingPage
+import "../assets/css/landing.css";
 
 export default function LandingPage() {
   return (
@@ -10,9 +10,15 @@ export default function LandingPage() {
           alt="CramDam Logo"
           className="logo"
         />
-        <h1 className="title">CramDam</h1>
-        <p className="subtext">Welcome to the fam</p>
+        <h1 className="title">CramDam!</h1>
+        <p className="subtext">Welcome to the study fam.</p>
         <div className="button-group">
+          <button
+            onClick={() => (window.location.href = "/about")}
+            className="btn about"
+          >
+            About
+          </button>
           <button
             onClick={() => (window.location.href = "/login")}
             className="btn login"

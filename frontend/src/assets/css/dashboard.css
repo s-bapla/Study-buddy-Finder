@@ -1,0 +1,127 @@
+.dashboard {
+  margin-left: 200px;
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+  color: #333;
+}
+
+.profile-summary {
+  background: white;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.profile-summary h1 {
+  margin-bottom: 20px;
+  font-size: 2rem;
+}
+
+/* Columns Layout */
+.columns {
+  display: flex;
+  gap: 20px; /* Space between columns */
+}
+
+/* Individual Column */
+.column {
+  flex: 1; /* Equal width columns */
+}
+
+/* Free-Response Fields */
+.free-response {
+  margin-top: 20px;
+}
+
+/* Form Styling */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Profile Header Styling */
+/* General Layout */
+.profile-summary {
+  padding: 20px;
+  background: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Rows */
+.row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+/* Profile Picture Column */
+.profile-picture-container {
+  flex: 1 1 40%; /* 40% of the row */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  background-color: #f0f0f0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #555;
+  font-size: 0.9rem;
+  cursor: pointer;
+  background-size: cover;
+  background-position: center;
+  border: 2px solid #ccc;
+  transition: transform 0.3s ease;
+}
+
+.profile-picture:hover {
+  transform: scale(1.05); /* Slight enlarge on hover */
+}
+
+.hidden-input {
+  display: none;
+}
+
+/* Input Fields Column */
+.profile-fields {
+  flex: 1 1 60%; /* 60% of the row */
+}
+
+.profile-fields .form-group {
+  margin-bottom: 10px;
+}
+
+/* Autobiography Column */
+.profile-autobiography {
+  flex: 1 1 100%; /* Take full width in the second row */
+}
+
+.profile-autobiography .form-group {
+  margin-bottom: 10px;
+}
+
+.form-group textarea {
+  width: 100%;
+}
+
+.profile-form {
+  margin: 0px 80px;
+}
